@@ -1,0 +1,66 @@
+.event-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.event-content {
+    width: 80%;
+    max-width: 1200px;
+}
+
+.event-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.event-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.event-details {
+    padding: 10px;
+}
+
+.event-name {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.event-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 681px) and (max-width: 982px) {
+    .event-content {
+        width: 60%;
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 680px) {
+    .event-content {
+        width: 80%;
+        max-width: 1200px;
+    }
+}

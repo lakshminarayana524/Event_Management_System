@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.home-body, .dash-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-nav, .dash-nav {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+}
+
+.home-nav-logo, .dash-nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.home-nav-button {
+  background-color: #ff9900;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.home-content, .dash-content {
+  margin-top: 2rem;
+  text-align: center;
+  width: 80%;
+}
+
+.home-header {
+  margin-bottom: 2rem;
+}
+
+.home-container, .dash-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.home-card, .dash-card {
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-card:hover, .dash-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dash-nav-links a {
+  color: #fff;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.dash-nav-links a:hover {
+  text-decoration: underline;
+}

@@ -1,38 +1,135 @@
-.App {
-  text-align: center;
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.home-body, .dash-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Navigation Styles */
+.nav, .home-nav, .dash-nav {
+  width: 95%;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  padding-right:60px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-logo, .home-nav-logo, .dash-nav-logo {
+
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav-logo a{
+  color:white;
+  text-decoration: none;
+}
+.nav-links, .dash-nav-links {
+  display: flex;
+}
+
+.nav-links a, .dash-nav-links a {
+  color: #fff;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.nav-links a:hover, .dash-nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Content Styles */
+.home-content, .dash-content {
+  margin-top: 2rem;
+  text-align: center;
+  width: 80%;
+}
+
+.home-header {
+  margin-bottom: 2rem;
+}
+
+.home-container, .dash-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.home-card, .dash-card {
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 30%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .home-card, .dash-card {
+    width: 45%;
   }
-  to {
-    transform: rotate(360deg);
+  
+}
+
+@media (max-width: 1060px) {
+  .home-card, .dash-card {
+    width: 45%;
+  }
+  .nav, .home-nav, .dash-nav {
+    padding-left:-3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-nav, .dash-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links, .dash-nav-links {
+    flex-direction: column;
+    margin-top: 0.5rem;
+  }
+
+  .nav-links a, .dash-nav-links a {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .home-content, .dash-content {
+    width: 90%;
+  }
+
+  .home-card, .dash-card {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo, .home-nav-logo, .dash-nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .home-content, .dash-content {
+    width: 95%;
+  }
+
+  .home-header h1, .dash-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .home-card h2, .dash-card h2 {
+    font-size: 1.2rem;
   }
 }
