@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './styles/login.css';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-// import Loader from './loader';
+import Loader from './load';
 
 const Login = ({setIsLoggedIn}) => {
     const [email, setEmail] = useState('');
@@ -44,9 +44,9 @@ const Login = ({setIsLoggedIn}) => {
         
     
 
-    // if (loading) {
-    //     return <Loader />;
-    // }
+    if (loading) {
+        return <Loader />;
+    }
 
     const handleSignup = () => {
         navigate('/signup');

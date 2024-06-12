@@ -8,11 +8,15 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
   axios.defaults.withCredentials = true;
 
   const handleLogout = () => {
+    // localStorage.removeItem('userId');
+
     axios.post('http://localhost:5000/api/auth/logout')
       .then((res) => {
-        localStorage.removeItem('userId');
-        setUserId(null); // Reset userId state
-        setIsLoggedIn(false); // Update isLoggedIn state
+        if(res.data.message==='Logout successful'){
+          localStorage.removeItem('userId');
+          setUserId(null); // Reset userId state
+          setIsLoggedIn(false); // Update isLoggedIn state
+          }
       })
       .catch((error) => {
         console.error('Logout failed:', error);

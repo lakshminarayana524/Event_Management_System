@@ -1,44 +1,50 @@
 import React, { useEffect, useState } from 'react';
-import './styles/eventsdet.css'
+import './styles/eventsdet.css';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import Load from './load';
 
-const Event_details = () => {
-    const userId = localStorage.getItem('userId')
-    console.log(userId)
-    const [eventdet, seteventdet] = useState([]);
+const EventDetails = () => {
+    const userId = localStorage.getItem('userId');
+    const { eventId, eventname } = useParams();
+    const [eventDetails, setEventDetails] = useState({});
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/events/eventdet/${userId}`)
+        setLoading(true);
+        axios.get(`http://localhost:5000/api/events/eventdet/${eventId}`)
             .then((res) => {
                 if (res.data.msg === "Event Details Fetched") {
-                    seteventdet(res.data.eventdet);
-                    console.log("Event fetched");
+                    setEventDetails(res.data.eventdet);
+                    setLoading(false);
                 }
             })
             .catch((err) => {
-                console.log("Unable to fetch the event details", err);
+                setLoading(false);
+                console.error("Unable to fetch the event details", err);
             });
+    }, [eventId]);
 
+    if (loading) {
+        return <Load />;
+    }
 
-    }, [userId]);
+    const handleBook = (eventId) => {
+        navigate(`/book/${eventId}`);
+    };
 
     return (
-        <div className='eventd-body'>
-            <div className='eventd-content'>
-                <div className='eventd-container'>
-                    <div className='eventd-details'>
-                        <div className='eventd-image'>
-                            <img src={eventdet.EventImage} alt={eventdet.EventName} />
-                        </div>
-                        <div className='eventd-eventname'>
-                            <h2>{eventdet.EventName}</h2>
-                            <p>{eventdet.EventDate}</p>
-                            <p>{eventdet.EventLocation}</p>
-                        </div>
+        <div className='event-details-body'>
+            <div className='event-details-content'>
+                <div className='event-details-container' style={{ backgroundImage: `url(${eventDetails.EventImage})` }}>
+                    <div className='event-info'>
+                        <h2>{eventDetails.EventName}</h2>
+                        <p>Date: {eventDetails.EventDate} &#x2022; {eventDetails.EventTime}</p>
+                        <p>Location: {eventDetails.EventLocation}</p>
                     </div>
-                    <div className='eventd-book'>
-                        <button>Book Now</button>
+                    <div className='event-book'>
+                        <button onClick={() => handleBook(eventDetails._id)}>Book Now</button>
                     </div>
                 </div>
             </div>
@@ -46,4 +52,4 @@ const Event_details = () => {
     );
 };
 
-export default Event_details;
+export default EventDetails;

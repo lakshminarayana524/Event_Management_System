@@ -1,56 +1,82 @@
-.eventd-body {
+/* styles/eventsdet.css */
+.event-details-body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-.eventd-content {
-    width: 80%;
-    max-width: 1200px;
-}
-
-.eventd-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f9f9f9;
+    height: 80vh;
+    background-color: #f0f4f8;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.eventd-details {
+.event-details-content {
+    width: 90%;
+    max-width: 1000px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    transition: transform 0.3s;
 }
 
-.eventd-image img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
+.event-details-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust as needed */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-.eventd-eventname {
-    margin-left: 20px;
+.event-info {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin-right:45px;
 }
 
-.eventd-eventname h2 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+.event-info h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: 'Arial Black', sans-serif;
 }
 
-.eventd-book button {
-    padding: 10px 20px;
-    background-color: #333;
+.event-info p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.event-book {
+    align-self: flex-end;
+    margin-top: 20px;
+    margin-right:50px;
+
+}
+
+.event-book button {
+    padding: 15px 30px;
+    /* background-color: #007BFF;
+     */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    outline: none;
 }
 
-.eventd-book button:hover {
-    background-color: #555;
+.event-book button:hover {
+    background-color: #5f666e;
+    transform: translateY(-2px);
 }

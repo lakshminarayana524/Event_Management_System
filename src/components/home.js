@@ -5,9 +5,9 @@ import './styles/home.css'
 const Home = () => {
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate('/login');
-  };
+  // const handleLogin = () => {
+  //   navigate('/login');
+  // };
 
   const handleEvents = () =>{
     navigate('./events')

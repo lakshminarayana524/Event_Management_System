@@ -12,10 +12,14 @@ body {
   align-items: center;
 }
 
+.nav{
+  background:transparent 
+}
+
 /* Navigation Styles */
 .nav, .home-nav, .dash-nav {
   width: 95%;
-  background-color: #333;
+  /* background-color: #333; */
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -30,21 +34,26 @@ body {
   font-weight: bold;
 }
 .nav-logo a{
-  color:white;
+  color:rgb(0, 0, 0);
   text-decoration: none;
+  margin-left:50px;
 }
 .nav-links, .dash-nav-links {
   display: flex;
 }
 
 .nav-links a, .dash-nav-links a {
-  color: #fff;
+  color: #000000;
   margin-left: 1rem;
   text-decoration: none;
 }
 
 .nav-links a:hover, .dash-nav-links a:hover {
   text-decoration: underline;
+}
+
+.nav-links{
+  margin-right:35px;
 }
 
 /* Content Styles */

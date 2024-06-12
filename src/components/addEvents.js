@@ -4,6 +4,7 @@ import './styles/addevents.css';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Load from './load';
 
 const AddEvents = () => {
     const [eventName, setEventName] = useState('');
@@ -17,11 +18,19 @@ const AddEvents = () => {
     const [send, setSend] = useState(false);
     const userId = localStorage.getItem('userId');
     const navigate = useNavigate();
+    const [load,setload]=useState(false);
 
     axios.defaults.withCredentials = true;
 
+    useEffect(()=>{
+        if(!userId){
+        navigate('/login');
+        }
+    },[])
+
     const onSubmit = (e) => {
         e.preventDefault();
+        setload(true);
         const formData = new FormData();
         images.forEach(image => {
             formData.append("image", image);
@@ -35,18 +44,31 @@ const AddEvents = () => {
         formData.append("eventMusicians", eventMusicians);
     
         axios.post('http://localhost:5000/api/events/add', formData)
+        
             .then(res => {
                 if (res.data.msg === "Event Added Successfully") {
                     setSend(true);
                     console.log(res.data.msg);
-                }
-                console.log(res);
+                    setEventName('');
+                    setEventDate('');
+                    setEventTime('');
+                    seteventattendees('');
+                    setEventLocation('');
+                    setEventMusicians('');
+                    setImages([]);
+                    setImagePreviews([]);
+                    }
+                    console.log(res);
+                    setload(false);
             })
-            .catch(err => console.log(err));
-    };
+            .catch(err => {
+                setload(false);
+                console.log(err)});
 
+    };
+    
     useEffect(() => {
-        if (send) {
+                if (send) {
             toast.success('Event added successfully');
             setSend(false);
             setTimeout(() => {
@@ -54,6 +76,11 @@ const AddEvents = () => {
             }, 2000);
         }
     }, [send]);
+
+    if(load){
+        return <Load/>
+    }
+
 
     const handleFileReader = (e) => {
         const files = Array.from(e.target.files);
@@ -73,6 +100,8 @@ const AddEvents = () => {
             setImagePreviews(previews);
         });
     };
+
+   
 
     return (
         <div className='add-event'>

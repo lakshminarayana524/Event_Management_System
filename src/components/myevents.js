@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React,{useState,useEffect} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Load from './load';
 import './styles/events.css';
 
-const Events = () => {
-    const [events, setEvents] = useState([]);
+const Myevents = () => {
+  const [events, setEvents] = useState([]);
     const navigate = useNavigate();
     const [load, setLoad] = useState(false);
+    const userId = localStorage.getItem('userId')
 
     useEffect(() => {
         setLoad(true);
 
-        axios.get('http://localhost:5000/api/events/allevents')
+        axios.get(`http://localhost:5000/api/events/allevent/${userId}`)
             .then((res) => {
                 if (res.data.msg === "Events Fetched") {
+                  // const filtered = res.data.events.filter()
                     setEvents(res.data.events);
                     setLoad(false);
                 }
@@ -23,7 +25,7 @@ const Events = () => {
                 setLoad(false);
                 console.log("Unable to fetch", err);
             });
-    }, []);
+    }, [userId]);
 
     const handleEventClick = (eventname, eventId) => {
         navigate(`/events/${eventId}/${eventname}`);
@@ -53,4 +55,5 @@ const Events = () => {
     );
 };
 
-export default Events;
+
+export default Myevents
