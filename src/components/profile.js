@@ -22,7 +22,9 @@ const Profile = () => {
         setLoad(true);
         if (userId) {
             // Fetch user profile data
-            axios.get(`http://localhost:5000/api/user/user/${userId}`)
+            axios.get(`https://event-management-system-od1t.onrender.com/api/user/user/${userId}`)
+            // axios.get(`http://localhost:5000/api/user/user/${userId}`)
+
                 .then((res) => {
                     if (res.data.msg === 'Profile data fetched') {
                         setUser(res.data.pro);
@@ -55,7 +57,8 @@ const Profile = () => {
         }
 
         try {
-            const res = await axios.put(`http://localhost:5000/api/user/update/${userId}`, formData);
+            // const res = await axios.put(`http://localhost:5000/api/user/update/${userId}`, formData);
+            const res = await axios.put(`https://event-management-system-od1t.onrender.com/api/user/update/${userId}`, formData);
             console.log(res.data.msg); // Success message
             setUser(res.data.user);
             setLoad(false);

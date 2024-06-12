@@ -22,7 +22,9 @@ export const AuthProvider = ({ children }) => {
       setUserId(storedUserId);
     }
 
-    axios.get('http://localhost:5000/api/verify')
+    axios.get('https://event-management-system-od1t.onrender.com/api/verify')
+    // axios.get('http://localhost:5000/api/verify')
+
 
       .then(res => {
         if (res.data.userId) {
@@ -40,7 +42,9 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (userId) {
-      axios.get(`http://localhost:5000/api/user/user-details/${userId}`)
+      axios.get(`https://event-management-system-od1t.onrender.com/api/user/user-details/${userId}`)
+      // axios.get(`http://localhost:5000/api/user/user-details/${userId}`)
+
         .then(response => {
           setUsername(response.data.username);
         })

@@ -12,7 +12,9 @@ const Events = () => {
     useEffect(() => {
         setLoad(true);
 
-        axios.get('http://localhost:5000/api/events/allevents')
+        axios.get('https://event-management-system-od1t.onrender.com/api/events/allevents')
+        // axios.get('http://localhost:5000/api/events/allevents')
+
             .then((res) => {
                 if (res.data.msg === "Events Fetched") {
                     setEvents(res.data.events);

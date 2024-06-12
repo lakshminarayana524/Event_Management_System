@@ -13,7 +13,9 @@ const Myevents = () => {
     useEffect(() => {
         setLoad(true);
 
-        axios.get(`http://localhost:5000/api/events/allevent/${userId}`)
+        // axios.get(`http://localhost:5000/api/events/allevent/${userId}`)
+        axios.get(`https://event-management-system-od1t.onrender.com/api/events/allevent/${userId}`)
+
             .then((res) => {
                 if (res.data.msg === "Events Fetched") {
                   // const filtered = res.data.events.filter()

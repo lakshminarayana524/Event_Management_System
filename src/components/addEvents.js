@@ -43,8 +43,11 @@ const AddEvents = () => {
         formData.append("eventLocation", eventLocation);
         formData.append("eventMusicians", eventMusicians);
     
-        axios.post('http://localhost:5000/api/events/add', formData)
+        axios.post('https://event-management-system-od1t.onrender.com/api/events/add', formData)
         
+        //axios.post('http://localhost:5000/api/events/add', formData)
+        
+
             .then(res => {
                 if (res.data.msg === "Event Added Successfully") {
                     setSend(true);

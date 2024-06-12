@@ -22,7 +22,9 @@ const Book = () => {
         const fetchEventDetails = async () => {
             setLoading(true);
             try {
-                const response = await axios.get(`http://localhost:5000/api/events/event/${eventId}`);
+                const response = await axios.get(`https://event-management-system-od1t.onrender.com/api/events/event/${eventId}`);
+                // const response = await axios.get(`http://localhost:5000/api/events/event/${eventId}`);
+
                 if (response.data.msg === "Event Details Fetched") {
                     setEventDetails(response.data.event);
                 }
@@ -37,7 +39,9 @@ const Book = () => {
             if (userId) {
                 setLoading(true);
                 try {
-                    const response = await axios.get(`http://localhost:5000/api/user/user/${userId}`);
+                    const response = await axios.get(`https://event-management-system-od1t.onrender.com/api/user/user/${userId}`);
+                    // const response = await axios.get(`http://localhost:5000/api/user/user/${userId}`);
+
                     if (response.data.msg === "Profile data fetched") {
                         setUserDetails(response.data.pro);
                     }
@@ -72,8 +76,8 @@ const Book = () => {
     useEffect(()=>{
         const ticket = async() =>{
             try{
-                // const 
-                const res = await axios.post(`http://localhost:5000/api/events/ticket`)
+                // const  res = await axios.post(`http://localhost:5000/api/events/ticket`)
+                const res = await axios.post(`https://event-management-system-od1t.onrender.com/api/events/ticket`)
             }
             catch(err){
                 console.log(err);

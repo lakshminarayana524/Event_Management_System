@@ -10,7 +10,9 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleLogout = () => {
     // localStorage.removeItem('userId');
 
-    axios.post('http://localhost:5000/api/auth/logout')
+    axios.post('https://event-management-system-od1t.onrender.com/api/auth/logout')
+    // axios.post('http://localhost:5000/api/auth/logout')
+
       .then((res) => {
         if(res.data.message==='Logout successful'){
           localStorage.removeItem('userId');

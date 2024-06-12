@@ -16,7 +16,9 @@ const AuthToken = () => {
         console.log("useEffect - verifyToken called"); // Added debugging point
         const verifyToken = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/verify');
+                // const res = await axios.get('http://localhost:5000/api/verify');
+                const res = await axios.get('https://event-management-system-od1t.onrender.com/api/verify');
+
 
                 console.log("API response:", res.data); // Log the API response
                 setMsg(res.data.msg);

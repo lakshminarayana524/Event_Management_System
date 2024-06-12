@@ -11,9 +11,13 @@ const EventDetails = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    axios.defaults.withCredentials=true
+
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:5000/api/events/eventdet/${eventId}`)
+        axios.get(`https://event-management-system-od1t.onrender.com/api/events/eventdet/${eventId}`)
+        // axios.get(`http://localhost:5000/api/events/eventdet/${eventId}`)
+
             .then((res) => {
                 if (res.data.msg === "Event Details Fetched") {
                     setEventDetails(res.data.eventdet);
