@@ -9,12 +9,19 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin: "http://localhost:3000",
-    methods: ["GET", "POST", "UPDATE", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
 app.use(cookieParser());
 
 ConnectDB();
+
+
+app.get('/',(req,res)=>{
+    res.json({msg:'Hi I am here!'})
+})
+
+
 
 // Import routes
 const authRoutes = require('./routes/auth');

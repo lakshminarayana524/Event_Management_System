@@ -1,9 +1,9 @@
 const express = require('express');
-const { getUser,UsersbyId } = require('../controller/userController');
+const { getUser,upload,UsersbyId,UpdateUser } = require('../controller/userController');
 const router = express.Router();
 
 router.get('/', getUser);
-router.get('/userprofile/:userId',UsersbyId)
-router.get('/update')
+router.get('/user/:userId',UsersbyId)
+router.put('/update/:userId',upload.single('image'),UpdateUser)
 
 module.exports = router;
